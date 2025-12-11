@@ -1,0 +1,73 @@
+<header class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white shadow-lg sticky top-0 z-50">
+  <nav class="container mx-auto px-4 py-4">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-8">
+        <a href="/" class="text-2xl font-bold tracking-tight hover:text-yellow-300 transition duration-300">
+          <span class="bg-white text-indigo-600 px-3 py-1 rounded-lg">Dream</span><span class="ml-2">nest</span>
+        </a>
+        <%if(isLoggedIn){ %>
+          <%if(user.accountType=='guest'){%>
+        <ul class="hidden md:flex space-x-1">
+          <li>
+            <a
+              href="/homes"
+              class="<%= currentPage === 'Home' ? 'bg-white text-indigo-600' : 'hover:bg-white hover:bg-opacity-20' %> py-2 px-4 rounded-lg transition duration-300 font-medium"
+              >Homes</a
+            >
+          </li>
+          <li>
+            <a
+              href="/favourites"
+              class="<%= currentPage === 'favourites' ? 'bg-white text-indigo-600' : 'hover:bg-white hover:bg-opacity-20' %> py-2 px-4 rounded-lg transition duration-300 font-medium"
+              >Favourites</a
+            >
+          </li>
+          <li>
+            <a
+              href="/bookings"
+              class="<%= currentPage === 'bookings' ? 'bg-white text-indigo-600' : 'hover:bg-white hover:bg-opacity-20' %> py-2 px-4 rounded-lg transition duration-300 font-medium"
+              >My Bookings</a
+            >
+          </li>
+          <%} else {%>
+          <li>
+            <a
+              href="/host/host-home-list"
+              class="<%= currentPage === 'host-homes' ? 'bg-white text-indigo-600' : 'hover:bg-white hover:bg-opacity-20' %> py-2 px-4 rounded-lg transition duration-300 font-medium"
+              >My Homes</a
+            >
+          </li>
+          <li>
+            <a
+              href="/host/add-home"
+              class="<%= currentPage === 'addHome' ? 'bg-white text-indigo-600' : 'hover:bg-white hover:bg-opacity-20' %> py-2 px-4 rounded-lg transition duration-300 font-medium bg-yellow-400 text-gray-900 hover:bg-yellow-300"
+              >+ Add Home</a
+            >
+          </li>
+          <% } %>
+        </ul>
+        <% } %>
+      </div>
+      <div class="flex items-center space-x-4">
+        <%if(isLoggedIn){ %>
+        <a
+          href="/auth/logout"
+          class="bg-red-500 hover:bg-red-600 py-2 px-6 rounded-lg transition duration-300 font-semibold shadow-md hover:shadow-lg"
+          >Logout</a
+        >
+        <% } else {%>
+           <a
+          href="/auth/signUp"
+          class="bg-white text-indigo-600 hover:bg-gray-100 py-2 px-6 rounded-lg transition duration-300 font-semibold shadow-md hover:shadow-lg"
+          >SignUp</a
+        >
+        <a
+          href="/auth/login"
+          class="bg-white text-indigo-600 hover:bg-gray-100 py-2 px-6 rounded-lg transition duration-300 font-semibold shadow-md hover:shadow-lg"
+          >Login</a
+        >
+        <% } %>
+      </div>
+    </div>
+  </nav>
+</header>
