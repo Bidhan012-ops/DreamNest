@@ -42,10 +42,15 @@
                 <a href="/home-details/<%=home._id%>" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-300 text-center">
                   View Details
                 </a>
+                <% if(isLoggedIn) {%>
                <%if(user.accountType=='guest') {%> <button class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 shadow-md hover:shadow-lg">
                   Book Now
                 </button>
-                <%}%>
+                <% }} else{%>
+                  <button class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 shadow-md hover:shadow-lg">
+                  Book Now
+                </button>
+                  <% }%>
               </div>
             </div>
           </div>

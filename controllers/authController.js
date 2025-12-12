@@ -30,14 +30,16 @@ exports.postLogin = async (req, res, next) => {
   }
   req.session.isLoggedIn = true;
   req.session.user={id:user._id.toString(),userName:user.userName,email:user.email,accountType:user.accountType};
-  await req.session.save((err)=>{
+   req.session.save((err)=>{
     if(err){
       console.log("Session save error:", err);
     }
-  });
-  console.log("User logged in successfully");
+    else {
+      console.log("User logged in successfully");
   console.log("In the post login",req.session);
   res.redirect("/");
+    }
+  });
 }
 exports.getLogout = (req, res, next) => {
   req.session.destroy((err)=>{

@@ -54,7 +54,9 @@
                           </div>
                       </div>
 
-                     <%if(user.accountType=='guest'){ %><div class="flex gap-4 pt-4">
+                     <%if(isLoggedIn){ %>
+                       <% if(user.accountType=='guest') {%>
+                        <div class="flex gap-4 pt-4">
                           <button class="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-4 px-6 rounded-xl transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                               Reserve Now
                           </button>
@@ -62,7 +64,16 @@
                               <%-include('../partials/favourite',{home:home}) %>
                           </div>
                       </div>
-                      <%}%>
+                      <%} } else{%>
+                         <div class="flex gap-4 pt-4">
+                          <button class="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-4 px-6 rounded-xl transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                              Reserve Now
+                          </button>
+                          <div class="flex-1">
+                              <%-include('../partials/favourite',{home:home}) %>
+                          </div>
+                      </div>
+                        <%}%>
                   </div>
               </div>
           </div>
